@@ -1,2 +1,2 @@
 # JavaScript-
-Learning JS from Yt -  Code aur Chai 
+Learning JS from Yt - Chai aur Code
