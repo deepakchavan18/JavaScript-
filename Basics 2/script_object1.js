@@ -1,8 +1,14 @@
+//Objects
+
+//Singleton
+//AND 
+//Objects Literals 
+
 const mySymbol=Symbol ["key1"]
 
 const new_object={
     name:"Deepak",
-    "fullname":"Deepak Chavan",
+    "full name":"Deepak Chavan",
     [mySymbol]:"mykey",
     age:20,
     email:"www.deepakchavan18@gmail.com",
@@ -12,8 +18,11 @@ const new_object={
 
 // console.log(new_object.name);
 
+// //To access the object components
+// console.log(new_object.name);
+
 // // Access the data which is defined in string
-// console.log(new_object["fullname"]);
+// console.log(new_object["full name"]);
 
 // //Access Symbol
 // console.log(new_object[mySymbol]);
