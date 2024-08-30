@@ -50,3 +50,8 @@ iceTeaPrice >=80 ? console.log("Less than 80 ") : console.log("Greater than 80")
 
 
 
+const age=21;
+
+age<=18 ? console.log("Not Eligible To Vote"):console.log("Eligible To Vote");
+
+
