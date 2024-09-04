@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Deepak Chavan</title>
+</head>
+<body style="background-color: #212121; color: #fff; font-size: x-large;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName){
+        const li = document.createElement('li')
+        li.innerHTML=`${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage('Python')
+    addLanguage('Deepak Addded through Console')
+
+
+    //or
+
+
+    function addOptiLang(langName){
+        const li = document.createElement('li')
+    //  const addText = document.createTextNode(langName)
+    //  li.appendChild(addText)
+    //or
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLang("Another Added")
+
+
+
+    //Edit the Value 
+    const sencondLang = document.querySelector("li:nth-child(2)")
+    // sencondLang.innerHTML="Edited"        //Works but - Not Optimized
+    const newli = document.createElement('li')
+    newli.textContent = "Deepak Edited - Replace with "
+    sencondLang.replaceWith(newli)
+    
+
+
+    //Edit
+    const thirdLang = document.querySelector('li:first-child')
+    thirdLang.outerHTML='<li>TypeScript | Previous:JavaScript</li>'
+
+
+    //Remove:Delete (Simple)
+    const lastlang = document.querySelector('li:last-child')
+    lastlang.remove()
+
+</script>
+</html>
