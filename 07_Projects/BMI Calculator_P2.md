@@ -5,7 +5,7 @@
 
 # Solution code
 
-## Project 2 - BMI Calculator 
+## Project 2 - BMI Cal 
 
 ### HTML
 ```html
