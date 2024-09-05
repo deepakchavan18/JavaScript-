@@ -5,7 +5,7 @@
 
 # Solution code
 
-## Project 2 - Color Changer 
+## Project 2 - BMI Calculator 
 
 ### HTML
 ```html
