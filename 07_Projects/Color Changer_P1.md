@@ -1,6 +1,6 @@
 # Projects related to DOM
 
-## project link
+## Project link
 [Click here](link)
 
 # Solution code
