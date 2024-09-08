@@ -1,3 +1,8 @@
+<!-- 
+ setInterval() - is a function in JavaScript that is used to repeatedly execute a given function at a specified interval.
+
+ clearInterval() - is used to stop the event of the recurring calling of a function at a fixed delay set by the setInterval() function. -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +16,26 @@
     <button id="stop">Stop</button>
 </body>
 <script>
+    // const sayDate = function(str){
+    //     console.log(str,Date.now());
+    // }
+    // const intervalId = setInterval(sayDate,1000,"Hie")     //SetInterval can also pass the parameter
+
+    // clearInterval(intervalId)
+
+    let intervalId
+    document.querySelector('#start').addEventListener('click',function(){
+        const sayDate = function(str){
+        console.log(str,Date.now());
+        }
+        intervalId = setInterval(sayDate,1000,"Hie")
+        console.log("Start Clicked");   
+    })
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearInterval(intervalId)
+        console.log("Stop Clicked");
+    })
 
 </script>   
 </html>
