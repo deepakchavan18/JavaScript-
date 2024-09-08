@@ -48,6 +48,8 @@
 ### JavaScript
 ```js
 const insert = document.getElementById('insert');
+//or
+// const insert = document.querySelector('#insert')
 
 window.addEventListener('keydown', (e) => {
   insert.innerHTML = `
