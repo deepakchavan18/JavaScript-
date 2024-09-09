@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub User Card</title>
+    <style>
+        body {
+            background-color: #414141;
+            color: aliceblue;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .maincard {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center; /* Ensures all content is centered horizontally */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+        }
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 0.2rem solid rgb(250, 148, 5);
+            margin: 0 auto; /* Centers the image */
+            display: block; /* Ensures the margin works properly */
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            margin: 10px 0;
+        }
+        .card p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+        a {
+            color: rgb(250, 148, 5);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="maincard">
+        <h4>This Data is Fetched through the GitHub API</h4>
+        <div class="card" id="userCard">
+            <img src="" alt="User Avatar" id="avatar" style="display:none;">
+            <h3>Loading...</h3>
+            <p><a href="#" id="userUrl" target="_blank">url: --</a></p>
+            <p>ID: --</p>
+            <p>Login: --</p>
+            <p>Followers: --</p>
+            <p>Following: --</p>
+            <p>Location: --</p>
+        </div>
+    </div>
+
+    <script>
+        const requestURL = 'https://api.github.com/users/deepakchavan18';
+        const xhr = new XMLHttpRequest();
+        const userCard = document.getElementById('userCard');
+        const avatar = document.getElementById('avatar');
+        const userUrl = document.getElementById('userUrl');
+
+        xhr.open('GET', requestURL);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const data = JSON.parse(this.responseText);
+                
+                // Update the card with API data
+                userCard.querySelector('h3').textContent = data.login;
+                console.log("Fetching and Loading");
+                userUrl.textContent = `url: ${data.url}`;
+                console.log("URL fetched")
+                userUrl.href = data.html_url; // Make URL clickable
+                userCard.querySelector('p:nth-of-type(2)').textContent = `ID: ${data.id}`;
+                console.log("ID fetched")
+                userCard.querySelector('p:nth-of-type(3)').textContent = `Login: ${data.login}`;
+                console.log("Login fetched")
+                userCard.querySelector('p:nth-of-type(4)').textContent = `Followers: ${data.followers}`;
+                console.log("Followers fetched")
+                userCard.querySelector('p:nth-of-type(5)').textContent = `Following: ${data.following}`;
+                console.log("Following fetched")
+                userCard.querySelector('p:nth-of-type(6)').textContent = `Location: ${data.location}`;
+                console.log("Location fetched")
+                
+                // Set the avatar image and display it
+                avatar.src = data.avatar_url;
+                avatar.style.display = 'block';
+            }
+        };
+        
+        xhr.send();
+    </script>
+
+</body>
+</html>
