@@ -88,6 +88,43 @@ async function consumePromiseFive() {
         console.log(response);
     } catch (error) {
         console.log(error);
-    }
+    }   
 }
 consumePromiseFive()
+
+
+
+// In JavaScript, an async function is a function that uses the async and await keywords to handle asynchronous operations like API calls, timeouts, and promises:
+// Async
+// Declares an asynchronous function. Async functions automatically return a promise, and returning in an async function is the same as resolving a promise.
+// Await
+// Tells JavaScript to wait for an asynchronous action to finish before continuing the function. 
+
+//// using try catch Method 
+// async function getAllUsers(){
+//     try {
+//         const response = await fetch('https://jsonplaceholder.typicode.com/users')
+//         const data = await response.json()
+//         console.log(data);
+//     } catch (error) {
+//         console.log("E:",error)
+//     }
+// }   
+// getAllUsers()
+
+
+
+////using .then .catch Method 
+fetch('https://jsonplaceholder.typicode.com/users')
+.then((response)=>{
+    return response.json();
+})
+.then((data)=>{
+    console.log(data);
+})
+.catch((error)=>{
+    console.log(error);
+})
+.finally(()=> {
+    console.log("The Promise is Either Resolved Either Rejected ");
+})
